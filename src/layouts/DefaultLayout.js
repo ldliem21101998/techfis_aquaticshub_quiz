@@ -26,7 +26,7 @@ const ProtectedRoute = ({ isAllowed, children, redirectPath }) => {
   </>)
 }
 
-const LayoutNotRequireLogin = () => {
+const DefaultLayout = () => {
   const [user, setUser] = useState(
     getSessionVar(sessionVar.user)
   );
@@ -109,4 +109,4 @@ const LayoutNotRequireLogin = () => {
   );
 };
 
-export default LayoutNotRequireLogin;
+export default DefaultLayout;
