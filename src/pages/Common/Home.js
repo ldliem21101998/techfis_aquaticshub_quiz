@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import bgImg from "../../assets/bg.png"
+import Starfish from "../../assets/starfish.png"
 
 const Home = () => {
     const questions = [
@@ -136,7 +137,7 @@ const Home = () => {
                         <div className="">
                             <img
                                 className="object-cover"
-                                src={"http://103.157.218.115/AquaticPicture/Badges/starfish.png"}
+                                src={Starfish}
                                 alt="Starfish Badge"
                             />
                             <div className="flex justify-center items-center">
