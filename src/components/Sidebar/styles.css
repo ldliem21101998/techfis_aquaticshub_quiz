@@ -1,0 +1,57 @@
+.custom-sidebar {
+    background-color: white;
+    height: auto;
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 32px;
+    transition-duration: 300ms;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.custom-sidebar-collapse {
+    width: 5rem
+}
+
+.custom-sidebar-expand {
+    width: 18rem
+}
+
+.customer-sidebar-logo {
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+.custom-sidebar-toogleButton {
+    width: 72px;
+    height: 40px;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    margin-bottom: 16px;
+    background-color: #70B557;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-sidebar-toogleButton:hover {
+    background-color: #70B557;
+    color: black;
+}
+
+.custom-sidebar-toogleButton-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .custom-sidebar-toogleButton {
+        display: none;
+    }
+}
