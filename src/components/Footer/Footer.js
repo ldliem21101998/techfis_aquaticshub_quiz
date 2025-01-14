@@ -101,7 +101,7 @@ const Footer = () => {
         <Divider className="bg-white"></Divider>
 
         <div className=" flex justify-center">
-          <p className="text-white">Copyright © 2024 TechFis</p>
+          <p className="text-white">Copyright © {new Date().getFullYear()}</p>
         </div>
       </div>
     </>
