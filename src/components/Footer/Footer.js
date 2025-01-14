@@ -28,8 +28,8 @@ const Footer = () => {
   return (
     <>
       <div className="h-auto w-full bg-black py-6">
-        <div className="grid grid-cols-4 gap-6 w-[90%] mx-auto md:max-xl:grid-cols-2 sm:max-md:grid-cols-1 ph:max-sm:grid-cols-1 pv:max-ph:grid-cols-1 pv:max-pvmax:grid-cols-1 pvmax:max-ph:grid-cols-1">
-          <div className="text-white w-full mx-auto flex flex-col gap-4 ">
+        <div className="grid grid-cols-3 gap-6 w-[90%] mx-auto md:max-xl:grid-cols-2 sm:max-md:grid-cols-1 ph:max-sm:grid-cols-1 pv:max-ph:grid-cols-1 pv:max-pvmax:grid-cols-1 pvmax:max-ph:grid-cols-1">
+          {/* <div className="text-white w-full mx-auto flex flex-col gap-4 ">
             <div>
               <h3 className="font-bold text-xl mb-4 text-orange-400">Policies</h3>
               <ul className="grid grid-cols-2">
@@ -57,17 +57,17 @@ const Footer = () => {
                 ></img>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="text-white flex flex-col gap-4 w-full mx-auto">
-            <div className="">
+            {/* <div className="">
               <p className="font-bold text-xl mb-4 text-orange-400">Swim Pool</p>
               <p className="">
                 Swim Academy is passionate about sports and physical
                 activity.Our school was created out of passion for water sports
                 and personal development.
               </p>
-            </div>
+            </div> */}
             <div className="flex gap-1 items-center">
               <p className="font-bold text-xl text-orange-400">Location</p>
             </div>
@@ -84,13 +84,13 @@ const Footer = () => {
               <p className="">Aqua cafe : 0949685445</p>
             </div>
 
-            <div className="flex flex-col gap-2 ">
+            {/* <div className="flex flex-col gap-2 ">
               <p className="font-bold text-xl text-start text-orange-400">
                 Business Registration
               </p>
               <p className="">Business License</p>
               <p className="">Business Qualification License</p>
-            </div>
+            </div> */}
           </div>
 
           <iframe
