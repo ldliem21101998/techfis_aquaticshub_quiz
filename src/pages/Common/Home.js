@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import bgImg from "../../assets/bg.png"
 import Starfish from "../../assets/starfish.png"
-import formBg from "../../assets/formBg.png"
+import header from "../../assets/logo.png"
 
 const Home = () => {
     const questions = [
         {
             section: "School of fish",
             questions: [
-                { id: 1, question: "Are you comfortable putting your face in the water? / Can you swim without arm bands?", options: ["Yes", "No"] },
-                { id: 2, question: "Can you float on your back and on your front by yourself? / Can you kick on your front and back without a float device?", options: ["Yes", "No"] },
-                { id: 3, question: "Can you swim in the deep end of the pool? / Can you swim on your back for 25m?", options: ["Yes", "No"] },
+                { id: 1, question: "Are you comfortable putting your face in the water? Can you swim without arm bands?", options: ["Yes", "No"] },
+                { id: 2, question: "Can you float on your back and on your front by yourself? Can you kick on your front and back without a float device?", options: ["Yes", "No"] },
+                { id: 3, question: "Can you swim in the deep end of the pool? Can you swim on your back for 25m?", options: ["Yes", "No"] },
                 { id: 4, question: "Can you swim 25m front crawl breathing on your side for 25m?", options: ["Yes", "No"] },
-                { id: 5, question: "Can you swim 50m front crawl? / Can you swim 50m backstroke? / Can you swim 50m breaststroke?", options: ["Yes", "No"] },
-                { id: 6, question: "Can you swim four strokes effortlessly? / Can you dive and do correct stroke turns?", options: ["Yes", "No"] },
+                { id: 5, question: "Can you swim 50m front crawl? Can you swim 50m backstroke? Can you swim 50m breaststroke?", options: ["Yes", "No"] },
+                { id: 6, question: "Can you swim four strokes effortlessly? Can you dive and do correct stroke turns?", options: ["Yes", "No"] },
                 { id: 7, question: "Do you want to refine all strokes, turns and skills related to swimming proficiency?", options: ["Yes", "No"] },
             ],
         },
@@ -68,12 +68,13 @@ const Home = () => {
 
     return (
         <div className="w-full flex items-center justify-center min-h-[100vh] py-10 relative">
+  
             <img className="w-full h-full object-cover absolute top-0 left-0 z-[-2]" src={bgImg} />
-            <div className="bg-white shadow-md rounded-lg p-8 max-w-xl w-full relative">
-                <h1 className="text-2xl font-bold text-gray-800 mb-4">Who are you</h1>
+            <div className="bg-white shadow-md rounded-lg p-10 w-1/2 relative">
+                <h1 className="text-[30px] font-bold text-center text-gray-800 mb-4">Who are you</h1>
                 {!submitted ? (
                     <>
-                        <h2 className="text-xl font-semibold text-gray-700 mb-4">{currentSection.section}</h2>
+                        <h2 className="text-xl font-semibold text-orange-400 mb-4 text-center">{currentSection.section}</h2>
                         {currentSection.questions.map((q) => (
                             <div key={q.id} className="mb-6 border-slate-400 border-[0.5px] p-4 rounded-xl">
                                 <p className="text-lg font-medium text-gray-700">
@@ -83,11 +84,11 @@ const Home = () => {
                                         </span>
                                     ))}
                                 </p>
-                                <div className="mt-2 flex gap-4">
+                                <div className="mt-2 flex gap-10">
                                     {q.options.map((option) => (
                                         <label
                                             key={option}
-                                            className="block mt-1 text-gray-600 cursor-pointer hover:scale-125"
+                                            className=" text-gray-600 cursor-pointer hover:text-orange-500 transition"
                                         >
                                             <input
                                                 type="radio"
@@ -103,8 +104,8 @@ const Home = () => {
                                 </div>
                             </div>
                         ))}
-                        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-                        <div className="flex justify-between mt-6">
+                        {error && <p className="text-red-500 text-sm mt-2 text-center">{error}</p>}
+                        <div className="flex justify-center mt-6">
                             {currentStep > 0 && (
                                 <button
                                     onClick={handlePrevious}
@@ -123,7 +124,7 @@ const Home = () => {
                             ) : (
                                 <button
                                     onClick={handleSubmit}
-                                    className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition"
+                                    className="bg-orange-400 text-white font-semibold py-2 w-1/4 rounded-lg hover:bg-[#6DA4DA] transition"
                                 >
                                     Submit
                                 </button>
@@ -131,23 +132,23 @@ const Home = () => {
                         </div>
                     </>
                 ) : (
-                    <div className="flex flex-col items-center justify-center">
-                        <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                            You are ...
+                    <div className="flex flex-col gap-6 items-center justify-center">
+                        <h2 className="text-2xl font-semibold text-orange-400 text-center">
+                            You are
                         </h2>
-                        <div className="">
+                        <div className="flex flex-col items-center justify-center gap-4">
                             <img
-                                className="object-cover"
+                                className="object-cover w-[50%]"
                                 src={Starfish}
                                 alt="Starfish Badge"
                             />
-                            <div className="flex justify-center items-center">
+                            <div className="flex font-bold justify-center items-center">
                                 <p className="text-[24px] text-[#55c1ff]">{"Starfish"}</p>
                             </div>
                         </div>
                         <button
                             onClick={handleRetake}
-                            className="mt-6 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition"
+                            className="bg-orange-400 text-white font-semibold py-2 w-1/4 rounded-lg hover:bg-[#6DA4DA] transition"
                         >
                             Retake Quiz
                         </button>
