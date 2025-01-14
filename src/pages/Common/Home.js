@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import bgImg from "../../assets/bg.png"
 import Starfish from "../../assets/starfish.png"
+import formBg from "../../assets/formBg.png"
 
 const Home = () => {
     const questions = [
@@ -67,14 +68,14 @@ const Home = () => {
 
     return (
         <div className="w-full flex items-center justify-center min-h-[100vh] py-10 relative">
-            <img className="w-full h-full object-cover absolute top-0 left-0 z-[-1]" src={bgImg}/>
-            <div className="bg-white shadow-md rounded-lg p-8 max-w-lg w-full">
+            <img className="w-full h-full object-cover absolute top-0 left-0 z-[-2]" src={bgImg} />
+            <div className="bg-white shadow-md rounded-lg p-8 max-w-xl w-full relative">
                 <h1 className="text-2xl font-bold text-gray-800 mb-4">Who are you</h1>
                 {!submitted ? (
                     <>
                         <h2 className="text-xl font-semibold text-gray-700 mb-4">{currentSection.section}</h2>
                         {currentSection.questions.map((q) => (
-                            <div key={q.id} className="mb-6">
+                            <div key={q.id} className="mb-6 border-slate-400 border-[0.5px] p-4 rounded-xl">
                                 <p className="text-lg font-medium text-gray-700">
                                     {q.question.split(" / ").map((line, idx) => (
                                         <span key={idx} className="block">
@@ -82,11 +83,11 @@ const Home = () => {
                                         </span>
                                     ))}
                                 </p>
-                                <div className="mt-2">
+                                <div className="mt-2 flex gap-4">
                                     {q.options.map((option) => (
                                         <label
                                             key={option}
-                                            className="block mt-1 text-gray-600 cursor-pointer"
+                                            className="block mt-1 text-gray-600 cursor-pointer hover:scale-125"
                                         >
                                             <input
                                                 type="radio"
