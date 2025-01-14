@@ -133,7 +133,7 @@ const Footer = () => {
                                 Location
                             </p>
                         </div>
-                        <p className="text-2xl">Goodlife., Ltd</p>
+                        {/* <p className="text-2xl">Goodlife., Ltd</p> */}
                         <p className="">
                             98 To Ngoc Van, Quang An Ward,{" "}
                             Tay Ho District, Hanoi
@@ -178,9 +178,9 @@ const Footer = () => {
                 </div>
                 <Divider className="bg-white"></Divider>
 
-                {/* <div className=" flex justify-center">
-                    <p className="text-white">v{process.env.REACT_APP_VERSION}</p>
-                </div> */}
+                <div className=" flex justify-center">
+                    <p className="text-white">Copyright © 2024 TechFis</p>
+                </div>
             </div>
         </>
     );

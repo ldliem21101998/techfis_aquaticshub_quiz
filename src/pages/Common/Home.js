@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bgImg from "../../assets/bg.png"
+import bgImg from "../../assets/bg2.png"
 import Starfish from "../../assets/starfish.png"
 import header from "../../assets/logo.png"
 
@@ -55,6 +55,7 @@ const Home = () => {
 
     const handleSubmit = () => {
         if (validateCurrentSection()) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
             setSubmitted(true);
         }
     };
@@ -67,89 +68,100 @@ const Home = () => {
     };
 
     return (
-        <div className="w-full flex items-center justify-center min-h-[100vh] py-10 relative">
-  
-            <img className="w-full h-full object-cover absolute top-0 left-0 z-[-2]" src={bgImg} />
-            <div className="bg-white shadow-md rounded-lg p-10 w-1/2 relative">
-                <h1 className="text-[30px] font-bold text-center text-gray-800 mb-4">Who are you</h1>
+        <div className="w-full flex flex-col items-center min-h-[100vh] bg-gradient-to-b from-blue-100 via-white to-orange-100">
+            {/* Header Section */}
+            <div className="relative w-full h-[30vh]">
+                <img className="w-screen h-[30vh] object-cover top-0 z-[-2]" src={bgImg} />
+                <img src={header} alt="header" className="object-cover absolute top-0 z-[1] my-2" />
+            </div>
+    
+            {/* Main Content Section */}
+            <div className="bg-white shadow-xl rounded-xl p-10 w-[90%] md:w-3/4 lg:w-1/2 my-10 border border-gray-200">
+                <h1 className="text-[32px] font-bold text-center text-gray-800 mb-2 uppercase tracking-wide">Who Are You?</h1>
+    
                 {!submitted ? (
                     <>
-                        <h2 className="text-xl font-semibold text-orange-400 mb-4 text-center">{currentSection.section}</h2>
-                        {currentSection.questions.map((q) => (
-                            <div key={q.id} className="mb-6 border-slate-400 border-[0.5px] p-4 rounded-xl">
-                                <p className="text-lg font-medium text-gray-700">
-                                    {q.question.split(" / ").map((line, idx) => (
-                                        <span key={idx} className="block">
-                                            {line}
-                                        </span>
-                                    ))}
-                                </p>
-                                <div className="mt-2 flex gap-10">
-                                    {q.options.map((option) => (
-                                        <label
-                                            key={option}
-                                            className=" text-gray-600 cursor-pointer hover:text-orange-500 transition"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name={`question-${q.id}`}
-                                                value={option}
-                                                className="mr-2"
-                                                onChange={() => handleAnswer(q.id, option)}
-                                                checked={answers[q.id] === option}
-                                            />
-                                            {option}
-                                        </label>
-                                    ))}
+                        {/* Current Section */}
+                        <h2 className="text-xl font-semibold text-orange-500 mb-6 text-center">
+                            {currentSection.section}
+                        </h2>
+    
+                        {/* Questions List */}
+                        <div className="space-y-6">
+                            {currentSection.questions.map((q) => (
+                                <div 
+                                    key={q.id} 
+                                    className="p-6 bg-gray-50 border border-gray-300 rounded-lg hover:shadow-md transition-shadow">
+                                    <p className="text-lg font-medium text-gray-700 mb-4">
+                                        {q.question.split(" / ").map((line, idx) => (
+                                            <span key={idx} className="block">
+                                                {line}
+                                            </span>
+                                        ))}
+                                    </p>
+                                    <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        {q.options.map((option) => (
+                                            <label
+                                                key={option}
+                                                className="flex items-center text-gray-600 cursor-pointer font-semibold hover:text-orange-500 transition">
+                                                <input
+                                                    type="radio"
+                                                    name={`question-${q.id}`}
+                                                    value={option}
+                                                    className="mr-2 accent-orange-400"
+                                                    onChange={() => handleAnswer(q.id, option)}
+                                                    checked={answers[q.id] === option}
+                                                />
+                                                {option}
+                                            </label>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-                        {error && <p className="text-red-500 text-sm mt-2 text-center">{error}</p>}
-                        <div className="flex justify-center mt-6">
+                            ))}
+                        </div>
+    
+                        {/* Error Message */}
+                        {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+    
+                        {/* Navigation Buttons */}
+                        <div className="flex justify-center items-center mt-8">
                             {currentStep > 0 && (
                                 <button
                                     onClick={handlePrevious}
-                                    className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition"
-                                >
+                                    className="bg-gray-500 text-white py-2 px-6 rounded-full hover:bg-gray-600 transition">
                                     Previous
                                 </button>
                             )}
                             {currentStep < questions.length - 1 ? (
                                 <button
                                     onClick={handleNext}
-                                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
-                                >
+                                    className="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition">
                                     Next
                                 </button>
                             ) : (
                                 <button
                                     onClick={handleSubmit}
-                                    className="bg-orange-400 text-white font-semibold py-2 w-1/4 rounded-lg hover:bg-[#6DA4DA] transition"
-                                >
+                                    className="bg-orange-400 text-white py-2 w-1/4 rounded-lg hover:bg-[#6DA4DA] transition">
                                     Submit
                                 </button>
                             )}
                         </div>
                     </>
                 ) : (
-                    <div className="flex flex-col gap-6 items-center justify-center">
-                        <h2 className="text-2xl font-semibold text-orange-400 text-center">
-                            You are
-                        </h2>
-                        <div className="flex flex-col items-center justify-center gap-4">
+                    /* Submitted State */
+                    <div className="text-center flex flex-col items-center space-y-6">
+                        <h2 className="text-2xl font-semibold text-orange-500">You Are</h2>
+                        <div className="flex flex-col items-center gap-6">
                             <img
-                                className="object-cover w-[50%]"
+                                className="w-1/3 object-cover "
                                 src={Starfish}
                                 alt="Starfish Badge"
                             />
-                            <div className="flex font-bold justify-center items-center">
-                                <p className="text-[24px] text-[#55c1ff]">{"Starfish"}</p>
-                            </div>
+                            <p className="text-2xl font-bold text-blue-600">Starfish</p>
                         </div>
                         <button
                             onClick={handleRetake}
-                            className="bg-orange-400 text-white font-semibold py-2 w-1/4 rounded-lg hover:bg-[#6DA4DA] transition"
-                        >
+                            className="bg-orange-400 text-white py-2 w-1/4 rounded-lg hover:bg-[#6DA4DA] transition">
                             Retake Quiz
                         </button>
                     </div>
@@ -157,6 +169,7 @@ const Home = () => {
             </div>
         </div>
     );
+    
 };
 
 export default Home;
