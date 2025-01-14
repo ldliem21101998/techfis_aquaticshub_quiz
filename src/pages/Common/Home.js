@@ -85,7 +85,7 @@ const Home = () => {
 
 
     return (
-        <div className="w-full flex flex-col items-center min-h-[100vh] bg-gradient-to-b from-blue-100 via-white to-orange-100">
+        <div className="w-full flex flex-col items-center min-h-screen bg-gradient-to-b from-blue-100 via-white to-orange-100">
             {/* Header Section */}
             <div className="relative w-full h-[30vh]">
                 <img className="w-screen h-[30vh] object-cover top-0 z-[-2]" src={bgImg} />
