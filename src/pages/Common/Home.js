@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import bgImg from "../../assets/bg2.png"
-import Starfish from "../../assets/starfish.png"
+import Starfish from "../../assets/badge/starfish.png"
+import Barracuda from "../../assets/badge/barracuda.png"
+import Dolphin from "../../assets/badge/dolphin.png"
+import Seahorse from "../../assets/badge/seahorse.png"
+import Shark from "../../assets/badge/shark.png"
+import Swordfish from "../../assets/badge/swordfish.png"
+import Seal from "../../assets/badge/seal.png"
 import header from "../../assets/logo.png"
 
 const Home = () => {
@@ -22,6 +28,7 @@ const Home = () => {
     const [answers, setAnswers] = useState({});
     const [currentStep, setCurrentStep] = useState(0);
     const [submitted, setSubmitted] = useState(false);
+    const [score, setScore] = useState(0)
     const [error, setError] = useState("");
 
     const currentSection = questions[currentStep];
@@ -57,6 +64,14 @@ const Home = () => {
         if (validateCurrentSection()) {
             window.scrollTo({ top: 0, behavior: "smooth" });
             setSubmitted(true);
+
+            let count = 0;
+            for (let i = 0; i < Object.values(answers).length; i++) {
+                if (Object.values(answers)[i] === "Yes") {
+                    count++;
+                }
+            }
+            setScore(count);
         }
     };
 
@@ -67,6 +82,8 @@ const Home = () => {
         setError("");
     };
 
+
+
     return (
         <div className="w-full flex flex-col items-center min-h-[100vh] bg-gradient-to-b from-blue-100 via-white to-orange-100">
             {/* Header Section */}
@@ -74,23 +91,23 @@ const Home = () => {
                 <img className="w-screen h-[30vh] object-cover top-0 z-[-2]" src={bgImg} />
                 <img src={header} alt="header" className="object-cover absolute top-0 z-[1] my-2" />
             </div>
-    
+
             {/* Main Content Section */}
             <div className="bg-white shadow-xl rounded-xl p-10 w-[90%] md:w-3/4 lg:w-1/2 my-10 border border-gray-200">
                 <h1 className="text-[32px] font-bold text-center text-gray-800 mb-2 uppercase tracking-wide">Who Are You?</h1>
-    
+
                 {!submitted ? (
                     <>
                         {/* Current Section */}
                         <h2 className="text-xl font-semibold text-orange-500 mb-6 text-center">
                             {currentSection.section}
                         </h2>
-    
+
                         {/* Questions List */}
                         <div className="space-y-6">
                             {currentSection.questions.map((q) => (
-                                <div 
-                                    key={q.id} 
+                                <div
+                                    key={q.id}
                                     className="p-6 bg-gray-50 border border-gray-300 rounded-lg hover:shadow-md transition-shadow">
                                     <p className="text-lg font-medium text-gray-700 mb-4">
                                         {q.question.split(" / ").map((line, idx) => (
@@ -119,10 +136,10 @@ const Home = () => {
                                 </div>
                             ))}
                         </div>
-    
+
                         {/* Error Message */}
                         {error && <p className="text-red-500 text-center mt-4">{error}</p>}
-    
+
                         {/* Navigation Buttons */}
                         <div className="flex justify-center items-center mt-8">
                             {currentStep > 0 && (
@@ -154,10 +171,27 @@ const Home = () => {
                         <div className="flex flex-col items-center gap-6">
                             <img
                                 className="w-1/3 object-cover "
-                                src={Starfish}
-                                alt="Starfish Badge"
+                                src={
+                                    score <= 1
+                                        ? Starfish : score == 2
+                                            ? Seahorse : score == 3
+                                                ? Seal : score == 4
+                                                    ? Barracuda : score == 5
+                                                        ? Swordfish : score == 6
+                                                            ? Dolphin : Shark
+
+                                }
+                                alt="Badge"
                             />
-                            <p className="text-2xl font-bold text-blue-600">Starfish</p>
+                            <p className="text-2xl font-bold text-blue-600">{
+                                score <= 1
+                                    ? "Starfish" : score == 2
+                                        ? "Seahorse" : score == 3
+                                            ? "Seal" : score == 4
+                                                ? "Barracuda" : score == 5
+                                                    ? "Swordfish" : score == 6
+                                                        ? "Dolphin" : "Shark"
+                            }</p>
                         </div>
                         <button
                             onClick={handleRetake}
@@ -169,7 +203,7 @@ const Home = () => {
             </div>
         </div>
     );
-    
+
 };
 
 export default Home;
