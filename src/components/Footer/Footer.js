@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <>
       <div className="h-auto w-full bg-black py-6">
-        <div className="grid grid-cols-3 gap-6 w-[90%] mx-auto md:max-xl:grid-cols-2 sm:max-md:grid-cols-1 ph:max-sm:grid-cols-1 pv:max-ph:grid-cols-1 pv:max-pvmax:grid-cols-1 pvmax:max-ph:grid-cols-1">
+        <div className="grid grid-cols-3 gap-6 w-[90%] mx-auto md:max-xl:grid-cols-2 max-md:grid-cols-1 ph:max-sm:grid-cols-1 pv:max-ph:grid-cols-1 pv:max-pvmax:grid-cols-1 pvmax:max-ph:grid-cols-1">
           {/* <div className="text-white w-full mx-auto flex flex-col gap-4 ">
             <div>
               <h3 className="font-bold text-xl mb-4 text-orange-400">Policies</h3>
@@ -74,9 +74,27 @@ const Footer = () => {
             <p className="">
               98 To Ngoc Van, Quang An Ward, Tay Ho District, Hanoi
             </p>
+
+
+            <div className="text-white flex flex-col gap-4 w-full hidden md:max-xl:block">
+            <div className="flex flex-col gap-1 ">
+              <p className="font-bold text-xl text-start mb-4 text-orange-400">Contact</p>
+              <p className="">Email : contact@aquaticshub.vn</p>
+              <p className="">Aquatics : 0969685445</p>
+              <p className="">Aqua cafe : 0949685445</p>
+            </div>
+
+            {/* <div className="flex flex-col gap-2 ">
+              <p className="font-bold text-xl text-start text-orange-400">
+                Business Registration
+              </p>
+              <p className="">Business License</p>
+              <p className="">Business Qualification License</p>
+            </div> */}
+          </div>
           </div>
 
-          <div className="text-white flex flex-col gap-4 w-full ">
+          <div className="text-white flex flex-col gap-4 w-full md:max-xl:hidden">
             <div className="flex flex-col gap-1 ">
               <p className="font-bold text-xl text-start mb-4 text-orange-400">Contact</p>
               <p className="">Email : contact@aquaticshub.vn</p>
