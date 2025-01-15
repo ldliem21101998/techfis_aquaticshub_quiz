@@ -72,8 +72,9 @@ const Home = () => {
             </div>
 
             <div className="bg-white shadow-xl rounded-xl p-10 w-[90%] md:w-3/4 lg:w-1/2 my-10 border border-gray-200">
-                <div className="w-full flex items-center justify-center">
+                <div className="w-full flex items-center justify-center flex-col">
                     <img src={logoSchoolOfFish} className="w-[200px]" />
+                    <div className="text-[20px] font-bold text-gray-800 mb-6 uppercase">School of fish</div>
                 </div>
                 {!language ? (
                     <div className="text-center">
