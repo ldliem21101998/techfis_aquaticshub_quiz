@@ -121,17 +121,17 @@ const Home = () => {
                             <img
                                 className="w-1/3 object-cover"
                                 src={
-                                    score <= 1
+                                    score < 1
                                         ? Starfish
-                                        : score === 2
+                                        : score === 1
                                             ? Seahorse
-                                            : score === 3
+                                            : score === 2
                                                 ? Seal
-                                                : score === 4
+                                                : score === 3
                                                     ? Barracuda
-                                                    : score === 5
+                                                    : score === 4
                                                         ? Swordfish
-                                                        : score === 6
+                                                        : score === 5
                                                             ? Dolphin
                                                             : Shark
                                 }
@@ -139,17 +139,17 @@ const Home = () => {
                             />
                             <p className="text-2xl font-bold text-blue-600">
                                 {
-                                    score <= 1
+                                    score < 1
                                         ? "Starfish"
-                                        : score === 2
+                                        : score === 1
                                             ? "Seahorse"
-                                            : score === 3
+                                            : score === 2
                                                 ? "Seal"
-                                                : score === 4
+                                                : score === 3
                                                     ? "Barracuda"
-                                                    : score === 5
+                                                    : score === 4
                                                         ? "Swordfish"
-                                                        : score === 6
+                                                        : score === 5
                                                             ? "Dolphin"
                                                             : "Shark"
                                 }
