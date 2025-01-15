@@ -8,6 +8,9 @@ import Shark from "../../assets/badge/shark.png";
 import Swordfish from "../../assets/badge/swordfish.png";
 import Seal from "../../assets/badge/seal.png";
 import header from "../../assets/logo.png";
+import logoSchoolOfFish from "../../assets/logo_schooloffish.png";
+import uk from "../../assets/language/uk.png";
+import vn from "../../assets/language/vn.png";
 
 const Home = () => {
     const questionsEn = [
@@ -69,19 +72,28 @@ const Home = () => {
             </div>
 
             <div className="bg-white shadow-xl rounded-xl p-10 w-[90%] md:w-3/4 lg:w-1/2 my-10 border border-gray-200">
+                <div className="w-full flex items-center justify-center">
+                    <img src={logoSchoolOfFish} className="w-[200px]" />
+                </div>
                 {!language ? (
                     <div className="text-center">
-                        <h1 className="text-[32px] font-bold text-gray-800 mb-6 uppercase">Select Your Language</h1>
+                        <h1 className="text-[32px] font-bold text-gray-800 mb-6 uppercase">Level Finder</h1>
                         <div className="flex justify-center gap-6">
                             <button
                                 onClick={() => handleLanguageSelection("en")}
                                 className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition">
-                                English
+                                <div className="flex gap-2 justify-center items-center">
+                                    <div>Start</div>
+                                    <img src={uk} className="w-[20px]" />
+                                </div>
                             </button>
                             <button
                                 onClick={() => handleLanguageSelection("vi")}
                                 className="bg-orange-400 text-white py-2 px-6 rounded-lg hover:bg-orange-500 transition">
-                                Tiếng Việt
+                                <div className="flex gap-2 justify-center items-center">
+                                    <div>Bắt đầu</div>
+                                    <img src={vn} className="w-[20px]" />
+                                </div>
                             </button>
                         </div>
                     </div>
@@ -112,16 +124,16 @@ const Home = () => {
                                     score <= 1
                                         ? Starfish
                                         : score === 2
-                                        ? Seahorse
-                                        : score === 3
-                                        ? Seal
-                                        : score === 4
-                                        ? Barracuda
-                                        : score === 5
-                                        ? Swordfish
-                                        : score === 6
-                                        ? Dolphin
-                                        : Shark
+                                            ? Seahorse
+                                            : score === 3
+                                                ? Seal
+                                                : score === 4
+                                                    ? Barracuda
+                                                    : score === 5
+                                                        ? Swordfish
+                                                        : score === 6
+                                                            ? Dolphin
+                                                            : Shark
                                 }
                                 alt="Badge"
                             />
@@ -130,16 +142,16 @@ const Home = () => {
                                     score <= 1
                                         ? "Starfish"
                                         : score === 2
-                                        ? "Seahorse"
-                                        : score === 3
-                                        ? "Seal"
-                                        : score === 4
-                                        ? "Barracuda"
-                                        : score === 5
-                                        ? "Swordfish"
-                                        : score === 6
-                                        ? "Dolphin"
-                                        : "Shark"
+                                            ? "Seahorse"
+                                            : score === 3
+                                                ? "Seal"
+                                                : score === 4
+                                                    ? "Barracuda"
+                                                    : score === 5
+                                                        ? "Swordfish"
+                                                        : score === 6
+                                                            ? "Dolphin"
+                                                            : "Shark"
                                 }
                             </p>
                         </div>
