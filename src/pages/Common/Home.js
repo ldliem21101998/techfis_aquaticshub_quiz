@@ -66,10 +66,10 @@ const Home = () => {
 
     return (
         <div className="w-full flex flex-col items-center min-h-screen bg-gradient-to-b from-blue-100 via-white to-orange-100">
-            <div className="relative w-full h-[30vh]">
+            {/* <div className="relative w-full h-[30vh]">
                 <img className="w-screen h-[30vh] object-cover top-0 z-[-2]" src={bgImg} alt="Background" />
                 <img src={header} alt="header" className="object-cover absolute top-0 z-[1] my-2" />
-            </div>
+            </div> */}
 
             <div className="bg-white shadow-xl rounded-xl p-10 w-[90%] md:w-3/4 lg:w-1/2 my-10 border border-gray-200">
                 <div className="w-full flex items-center justify-center flex-col">

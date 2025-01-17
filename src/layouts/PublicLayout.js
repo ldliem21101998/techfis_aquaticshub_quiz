@@ -7,7 +7,7 @@ const PublicLayout = () => {
       {/* <div className="w-full  sticky top-0 z-10"> */}
       {/* <PublicHeader /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
       {/* </div> */}
     </div>
   );
